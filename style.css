@@ -1,0 +1,89 @@
+body{
+margin:0;
+font-family:monospace;
+background:black;
+color:#00ff9c;
+overflow-x:hidden;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+padding:20px;
+background:#000000cc;
+}
+
+nav a{
+color:#00ff9c;
+margin:10px;
+text-decoration:none;
+}
+
+section{
+padding:80px 20px;
+max-width:900px;
+margin:auto;
+}
+
+.hero{
+text-align:center;
+font-size:20px;
+}
+
+.profile{
+width:160px;
+height:160px;
+border-radius:50%;
+border:3px solid #00ff9c;
+box-shadow:0 0 20px #00ff9c;
+margin-bottom:20px;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.skill{
+border:1px solid #00ff9c;
+padding:10px 20px;
+}
+
+.projects{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.card{
+border:1px solid #00ff9c;
+padding:20px;
+width:250px;
+}
+
+.terminal{
+background:black;
+border:1px solid #00ff9c;
+padding:20px;
+}
+
+#terminal-input{
+width:100%;
+background:black;
+color:#00ff9c;
+border:none;
+outline:none;
+}
+
+footer{
+text-align:center;
+padding:20px;
+}
