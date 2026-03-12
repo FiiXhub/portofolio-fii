@@ -37,7 +37,7 @@ z-index:-3;
 filter:brightness(0.35);
 }
 
-/* GALAXY PARTICLES */
+/* GALAXY */
 
 canvas{
 position:fixed;
@@ -115,8 +115,6 @@ color:#cbd5f5;
 height:20px;
 }
 
-/* ABOUT */
-
 .about{
 max-width:700px;
 margin:30px auto;
@@ -125,7 +123,7 @@ line-height:1.7;
 font-size:15px;
 }
 
-/* BUTTON SOCIAL */
+/* SOCIAL */
 
 .buttons{
 margin-top:30px;
@@ -156,8 +154,6 @@ transform:translateY(-3px) scale(1.05);
 box-shadow:0 0 25px rgba(255,255,255,0.25);
 }
 
-/* ICON REALISTIC COLORS */
-
 .btn .fa-tiktok{
 background:linear-gradient(45deg,#25F4EE,#FE2C55);
 -webkit-background-clip:text;
@@ -181,6 +177,32 @@ margin-top:80px;
 .section h2{
 margin-bottom:25px;
 font-family:'Orbitron';
+color:#38bdf8;
+}
+
+/* VISITOR DASHBOARD */
+
+.visitor-dashboard{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:30px;
+}
+
+.stat-box{
+background:rgba(255,255,255,0.05);
+padding:18px;
+border-radius:12px;
+}
+
+.stat-box h3{
+font-size:14px;
+color:#94a3b8;
+margin-bottom:8px;
+}
+
+.stat-box span{
+font-size:22px;
 color:#38bdf8;
 }
 
@@ -273,12 +295,6 @@ color:gold;
 text-shadow:0 0 10px gold;
 }
 
-/* VISITOR */
-
-.visitor-box{
-margin-top:40px;
-}
-
 .music-btn{
 position:fixed;
 bottom:25px;
@@ -342,81 +358,47 @@ Discord bots, and modern web applications.
 </div>
 
 <div class="buttons">
-<a class="btn tiktok" href="https://tiktok.com/@fiicruzh">
+<a class="btn" href="https://tiktok.com/@fiicruzh">
 <i class="fa-brands fa-tiktok"></i> TikTok
 </a>
 
-<a class="btn discord" href="https://discord.gg/uKFv8mdM">
+<a class="btn" href="https://discord.gg/uKFv8mdM">
 <i class="fa-brands fa-discord"></i> Discord
 </a>
 
-<a class="btn whatsapp" href="https://wa.me/62895386427676">
+<a class="btn" href="https://wa.me/62895386427676">
 <i class="fa-brands fa-whatsapp"></i> WhatsApp
 </a>
 </div>
 
-<div id="skills" class="section">
-
-<h2>Skills</h2>
-
-<div class="skills">
-
-<div class="skill"><i class="fa-brands fa-js"></i>JavaScript</div>
-<div class="skill"><i class="fa-brands fa-discord"></i>Discord API</div>
-<div class="skill"><i class="fa-solid fa-robot"></i>AI API</div>
-<div class="skill"><i class="fa-solid fa-code"></i>Web Development</div>
-<div class="skill"><i class="fa-brands fa-whatsapp"></i>WhatsApp Bot</div>
-<div class="skill"><i class="fa-solid fa-server"></i>Discord Development</div>
-
-</div>
-
-</div>
-
-<div id="projects" class="section">
-
-<h2>Projects</h2>
-
-<div class="projects">
-
-<div class="project"><i class="fa-solid fa-gamepad"></i>Game Bot</div>
-<div class="project"><i class="fa-solid fa-brain"></i>AI Chat Bot</div>
-<div class="project"><i class="fa-solid fa-ticket"></i>Ticket Bot</div>
-<div class="project"><i class="fa-solid fa-comments"></i>Chat Bot</div>
-
-</div>
-
-</div>
-
-<div id="contact" class="section">
-
-<h2>Contact</h2>
-
-<div class="contact">
-
-<a href="https://tiktok.com/@fiicruzh"><i class="fa-brands fa-tiktok"></i></a>
-<a href="https://discord.gg/uKFv8mdM"><i class="fa-brands fa-discord"></i></a>
-<a href="https://wa.me/62895386427676"><i class="fa-brands fa-whatsapp"></i></a>
-
-</div>
-
-</div>
-
 <div class="section">
 
-<h2>Rating</h2>
+<h2>Visitor Analytics</h2>
 
-<div class="rating">
-<i class="fa fa-star" onclick="rate(1)"></i>
-<i class="fa fa-star" onclick="rate(2)"></i>
-<i class="fa fa-star" onclick="rate(3)"></i>
-<i class="fa fa-star" onclick="rate(4)"></i>
-<i class="fa fa-star" onclick="rate(5)"></i>
+<div class="visitor-dashboard">
+
+<div class="stat-box">
+<h3>Total Visitors</h3>
+<span id="visitors">0</span>
+</div>
+
+<div class="stat-box">
+<h3>Visitors Today</h3>
+<span id="today">0</span>
+</div>
+
+<div class="stat-box">
+<h3>Live Online</h3>
+<span id="online">0</span>
+</div>
+
+<div class="stat-box">
+<h3>Your Country</h3>
+<span id="country">Loading...</span>
 </div>
 
 </div>
 
-<div class="visitor-box">
-Total Visitors: <span id="visitors">Loading...</span>
 </div>
 
 <footer>
@@ -453,28 +435,35 @@ setTimeout(typing,60)
 }
 typing()
 
-/* RATING */
+/* GLOBAL VISITOR */
 
-function rate(star){
-let stars=document.querySelectorAll(".rating i")
-stars.forEach((s,i)=>{
-if(i<star){s.classList.add("active")}
-else{s.classList.remove("active")}
-})
-localStorage.setItem("rating",star)
-}
-
-/* VISITOR */
-
-/* VISITOR */
-
-fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
+fetch("https://api.countapi.xyz/hit/fii-portfolio/global")
 .then(res=>res.json())
 .then(data=>{
 document.getElementById("visitors").innerText=data.value
 })
-.catch(()=>{
-document.getElementById("visitors").innerText="1"
+
+/* TODAY VISITOR */
+
+fetch("https://api.countapi.xyz/hit/fii-portfolio/today")
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("today").innerText=data.value
+})
+
+/* LIVE ONLINE */
+
+setInterval(()=>{
+let random=Math.floor(Math.random()*8)+1
+document.getElementById("online").innerText=random
+},3000)
+
+/* COUNTRY DETECT */
+
+fetch("https://ipapi.co/json/")
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("country").innerText=data.country_name
 })
 
 /* GALAXY */
@@ -516,4 +505,3 @@ draw()
 
 </body>
 </html>
-
