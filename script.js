@@ -1,16 +1,14 @@
 // visitor counter
 
-let visitors = localStorage.getItem("visitors")
+fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
 
-if(!visitors){
-visitors = 1
-}else{
-visitors = Number(visitors) + 1
-}
+.then(res => res.json())
 
-localStorage.setItem("visitors",visitors)
+.then(data => {
 
-document.getElementById("visitor-count").innerText = visitors
+document.getElementById("visitor-count").innerText = data.value
+
+})
 
 
 
