@@ -17,7 +17,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </head>
 
-
 <body>
 
 <header>
@@ -25,10 +24,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <h1>FII Developer</h1>
 
 <nav>
+
 <a href="#about">Tentang</a>
 <a href="#skills">Skill</a>
 <a href="#projects">Project</a>
+<a href="#terminal">Terminal</a>
 <a href="#contact">Kontak</a>
+
 </nav>
 
 </header>
@@ -43,11 +45,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <p class="desc">
 
-Developer yang berfokus pada pengembangan sistem automation,
-AI chatbot, dan bot platform seperti Discord dan WhatsApp.
+Developer yang fokus membangun sistem automation,
+AI chatbot, serta bot untuk platform seperti Discord
+dan WhatsApp.
 
-Saya membangun solusi teknologi yang membantu komunitas
-dan server menjadi lebih efisien, otomatis, dan modern.
+Saya menciptakan solusi teknologi modern yang membantu
+komunitas digital menjadi lebih efisien dan otomatis.
 
 </p>
 
@@ -61,19 +64,18 @@ dan server menjadi lebih efisien, otomatis, dan modern.
 
 <p>
 
-Saya adalah seorang developer yang memiliki passion besar
+Saya adalah developer yang memiliki passion besar
 dalam dunia automation, bot development, dan integrasi AI.
 
-Saya terbiasa membangun berbagai sistem seperti:
+Beberapa sistem yang sering saya bangun:
 
-• Discord bot automation  
-• WhatsApp bot system  
-• AI chatbot integration  
-• Web tools untuk komunitas  
+• Discord Bot Automation  
+• WhatsApp Bot System  
+• AI Chatbot Integration  
+• Web Tools untuk komunitas  
 
-Fokus saya adalah menciptakan solusi teknologi yang
-membantu komunitas digital berkembang dengan sistem
-yang efisien dan modern.
+Tujuan saya adalah menciptakan teknologi yang
+mempermudah komunitas digital berkembang.
 
 </p>
 
@@ -113,10 +115,24 @@ yang efisien dan modern.
 
 <h2>Statistik GitHub</h2>
 
-<div id="github-stats">
-
-<p>Total Repo : <span id="repo"></span></p>
+<p>Public Repository : <span id="repo"></span></p>
 <p>Followers : <span id="followers"></span></p>
+
+</section>
+
+
+
+<section id="terminal">
+
+<h2>Terminal Portfolio</h2>
+
+<div class="terminal">
+
+<div id="terminal-output"></div>
+
+<input
+id="terminal-input"
+placeholder="ketik command seperti help">
 
 </div>
 
@@ -126,19 +142,17 @@ yang efisien dan modern.
 
 <section>
 
-<h2>Rating Portfolio</h2>
+<h2>AI Chatbot</h2>
 
-<div class="rating">
+<div class="chat">
 
-<span onclick="rate(1)">⭐</span>
-<span onclick="rate(2)">⭐</span>
-<span onclick="rate(3)">⭐</span>
-<span onclick="rate(4)">⭐</span>
-<span onclick="rate(5)">⭐</span>
+<div id="chat-box"></div>
+
+<input id="chat-input" placeholder="Tanya sesuatu...">
+
+<button onclick="sendChat()">Kirim</button>
 
 </div>
-
-<p id="rating-result"></p>
 
 </section>
 
@@ -175,26 +189,6 @@ yang efisien dan modern.
 </div>
 
 <p>Discord : fiicruzh</p>
-
-</section>
-
-
-
-<section>
-
-<h2>Kirim Pesan</h2>
-
-<form action="https://formspree.io/f/xvgavvde" method="POST">
-
-<input type="text" name="name" placeholder="Nama" required>
-
-<input type="email" name="email" placeholder="Email" required>
-
-<textarea name="message" placeholder="Pesan"></textarea>
-
-<button type="submit">Kirim</button>
-
-</form>
 
 </section>
 
