@@ -257,21 +257,12 @@ color:gold;
 text-shadow:0 0 10px gold;
 }
 
-.rating-total{
-margin-top:10px;
-font-size:14px;
-color:#94a3b8;
-}
-
 /* VISITOR */
 
 .visitor-box{
-margin-top:15px;
-font-size:13px;
-color:#94a3b8;
+margin-top:40px;
+font-size:15px;
 }
-
-/* MUSIC BUTTON */
 
 .music-btn{
 position:fixed;
@@ -318,7 +309,6 @@ color:#94a3b8;
 <a href="#skills">Skills</a>
 <a href="#projects">Project</a>
 <a href="#contact">Contact</a>
-<a href="#rating">Rating</a>
 </nav>
 
 <div class="container">
@@ -351,43 +341,55 @@ Discord bots, and modern web applications.
 </div>
 
 <div id="skills" class="section">
+
 <h2>Skills</h2>
+
 <div class="skills">
+
 <div class="skill"><i class="fa-brands fa-js"></i>JavaScript</div>
 <div class="skill"><i class="fa-brands fa-discord"></i>Discord API</div>
 <div class="skill"><i class="fa-solid fa-robot"></i>AI API</div>
 <div class="skill"><i class="fa-solid fa-code"></i>Web Development</div>
 <div class="skill"><i class="fa-brands fa-whatsapp"></i>WhatsApp Bot</div>
 <div class="skill"><i class="fa-solid fa-server"></i>Discord Development</div>
+
 </div>
+
 </div>
 
 <div id="projects" class="section">
+
 <h2>Projects</h2>
+
 <div class="projects">
+
 <div class="project"><i class="fa-solid fa-gamepad"></i>Game Bot</div>
 <div class="project"><i class="fa-solid fa-brain"></i>AI Chat Bot</div>
 <div class="project"><i class="fa-solid fa-ticket"></i>Ticket Bot</div>
 <div class="project"><i class="fa-solid fa-comments"></i>Chat Bot</div>
+
 </div>
+
 </div>
 
 <div id="contact" class="section">
+
 <h2>Contact</h2>
+
 <div class="contact">
+
 <a href="https://tiktok.com/@fiicruzh"><i class="fa-brands fa-tiktok"></i></a>
 <a href="https://discord.gg/uKFv8mdM"><i class="fa-brands fa-discord"></i></a>
 <a href="https://wa.me/62895386427676"><i class="fa-brands fa-whatsapp"></i></a>
-</div>
 
-<div class="visitor-box">
-Total Visitors: <span id="visitors">Loading...</span>
 </div>
 
 </div>
 
-<div id="rating" class="section">
+<div class="section">
+
 <h2>Rating</h2>
+
 <div class="rating">
 <i class="fa fa-star" onclick="rate(1)"></i>
 <i class="fa fa-star" onclick="rate(2)"></i>
@@ -396,10 +398,10 @@ Total Visitors: <span id="visitors">Loading...</span>
 <i class="fa fa-star" onclick="rate(5)"></i>
 </div>
 
-<div class="rating-total">
-Total Ratings: <span id="ratingCount">0</span>
 </div>
 
+<div class="visitor-box">
+Total Visitors: <span id="visitors">Loading...</span>
 </div>
 
 <footer>
@@ -436,39 +438,39 @@ setTimeout(typing,60)
 }
 typing()
 
-/* RATING SYSTEM */
-
-let ratingCount = localStorage.getItem("ratingCount") || 0
-document.getElementById("ratingCount").innerText = ratingCount
+/* RATING */
 
 function rate(star){
-
 let stars=document.querySelectorAll(".rating i")
-
 stars.forEach((s,i)=>{
 if(i<star){s.classList.add("active")}
 else{s.classList.remove("active")}
 })
-
-if(!localStorage.getItem("rated")){
-
-ratingCount++
-localStorage.setItem("ratingCount",ratingCount)
-
-document.getElementById("ratingCount").innerText = ratingCount
-
-localStorage.setItem("rated",true)
-
+localStorage.setItem("rating",star)
 }
 
-}
+/* VISITOR FIX */
 
-/* VISITOR */
+const visitorEl=document.getElementById("visitors")
 
 fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
 .then(res=>res.json())
 .then(data=>{
-document.getElementById("visitors").innerText=data.value
+visitorEl.innerText=data.value
+})
+.catch(()=>{
+
+let localCount=localStorage.getItem("localVisitors")
+
+if(!localCount){
+localCount=1
+}else{
+localCount=parseInt(localCount)+1
+}
+
+localStorage.setItem("localVisitors",localCount)
+visitorEl.innerText=localCount
+
 })
 
 /* GALAXY */
