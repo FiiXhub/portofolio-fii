@@ -156,7 +156,7 @@ transform:translateY(-3px) scale(1.05);
 box-shadow:0 0 25px rgba(255,255,255,0.25);
 }
 
-/* ICON COLORS */
+/* SOCIAL ICON COLORS */
 
 .tiktok i{
 background:linear-gradient(45deg,#25F4EE,#FE2C55);
@@ -186,35 +186,38 @@ color:#38bdf8;
 
 /* FILTER BUTTON */
 
-.filter-btn{
-margin-bottom:25px;
-display:flex;
-justify-content:center;
-gap:15px;
+.filter{
+margin-bottom:20px;
 }
 
-.filter-btn button{
-padding:10px 20px;
+.filter button{
+padding:10px 18px;
 border:none;
 border-radius:30px;
-cursor:pointer;
+font-size:14px;
 font-weight:500;
+cursor:pointer;
 color:white;
+margin:5px;
 transition:.3s;
 }
 
-.btn-skill{
+/* SKILL BUTTON */
+
+.skill-btn{
 background:linear-gradient(90deg,#38bdf8,#0ea5e9);
 box-shadow:0 0 15px #38bdf8;
 }
 
-.btn-project{
+/* PROJECT BUTTON */
+
+.project-btn{
 background:linear-gradient(90deg,#6366f1,#8b5cf6);
 box-shadow:0 0 15px #8b5cf6;
 }
 
-.filter-btn button:hover{
-transform:scale(1.08);
+.filter button:hover{
+transform:scale(1.05);
 }
 
 /* SKILLS */
@@ -271,7 +274,7 @@ transform:translateY(-6px);
 box-shadow:0 0 15px #6366f1;
 }
 
-/* CONTACT ICON COLORS */
+/* CONTACT */
 
 .contact{
 display:flex;
@@ -318,6 +321,10 @@ color:#444;
 .rating i.active{
 color:gold;
 text-shadow:0 0 10px gold;
+}
+
+.visitor-box{
+margin-top:40px;
 }
 
 .music-btn{
@@ -400,8 +407,8 @@ Discord bots, and modern web applications.
 
 <h2>Skills</h2>
 
-<div class="filter-btn">
-<button class="btn-skill">All Skills</button>
+<div class="filter">
+<button class="skill-btn">All Skills</button>
 </div>
 
 <div class="skills">
@@ -421,8 +428,8 @@ Discord bots, and modern web applications.
 
 <h2>Projects</h2>
 
-<div class="filter-btn">
-<button class="btn-project">All Projects</button>
+<div class="filter">
+<button class="project-btn">All Projects</button>
 </div>
 
 <div class="projects">
@@ -435,128 +442,3 @@ Discord bots, and modern web applications.
 </div>
 
 </div>
-
-<div id="contact" class="section">
-
-<h2>Contact</h2>
-
-<div class="contact">
-
-<a href="https://tiktok.com/@fiicruzh"><i class="fa-brands fa-tiktok"></i></a>
-<a href="https://discord.gg/uKFv8mdM"><i class="fa-brands fa-discord"></i></a>
-<a href="https://wa.me/62895386427676"><i class="fa-brands fa-whatsapp"></i></a>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>Rating</h2>
-
-<div class="rating">
-<i class="fa fa-star" onclick="rate(1)"></i>
-<i class="fa fa-star" onclick="rate(2)"></i>
-<i class="fa fa-star" onclick="rate(3)"></i>
-<i class="fa fa-star" onclick="rate(4)"></i>
-<i class="fa fa-star" onclick="rate(5)"></i>
-</div>
-
-</div>
-
-<div class="visitor-box">
-Total Visitors: <span id="visitors">Loading...</span>
-</div>
-
-<footer>
-© 2026 FII Developer
-</footer>
-
-</div>
-
-<script>
-
-/* MUSIC */
-
-let music=document.getElementById("music")
-music.volume=0.4
-
-function toggleMusic(){
-if(music.paused){music.play()}
-else{music.pause()}
-}
-
-document.addEventListener("click",()=>{music.play()},{once:true})
-
-/* TYPING */
-
-const text="Bot Developer • Automation • AI Integration"
-let i=0
-
-function typing(){
-if(i<text.length){
-document.getElementById("typing").innerHTML+=text.charAt(i)
-i++
-setTimeout(typing,60)
-}
-}
-typing()
-
-/* RATING */
-
-function rate(star){
-let stars=document.querySelectorAll(".rating i")
-stars.forEach((s,i)=>{
-if(i<star){s.classList.add("active")}
-else{s.classList.remove("active")}
-})
-localStorage.setItem("rating",star)
-}
-
-/* VISITOR */
-
-fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
-.then(res=>res.json())
-.then(data=>{
-document.getElementById("visitors").innerText=data.value
-})
-
-/* GALAXY */
-
-const canvas=document.getElementById("galaxy")
-const ctx=canvas.getContext("2d")
-
-canvas.width=window.innerWidth
-canvas.height=window.innerHeight
-
-let stars=[]
-
-for(let i=0;i<120;i++){
-stars.push({
-x:Math.random()*canvas.width,
-y:Math.random()*canvas.height,
-r:Math.random()*2
-})
-}
-
-function draw(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height)
-
-stars.forEach(s=>{
-ctx.beginPath()
-ctx.arc(s.x,s.y,s.r,0,Math.PI*2)
-ctx.fillStyle="white"
-ctx.fill()
-})
-
-requestAnimationFrame(draw)
-
-}
-
-draw()
-
-</script>
-
-</body>
-</html>
