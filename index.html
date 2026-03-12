@@ -261,26 +261,28 @@ color:gold;
 text-shadow:0 0 10px gold;
 }
 
+/* VISITOR */
+
+.visitor-box{
+margin-top:40px;
+}
+
 /* MUSIC BUTTON */
 
 .music-btn{
 position:fixed;
 bottom:25px;
 right:25px;
-width:60px;
-height:60px;
+width:55px;
+height:55px;
 border-radius:50%;
 border:none;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 color:white;
-font-size:22px;
+font-size:20px;
 cursor:pointer;
-box-shadow:0 0 25px #38bdf8;
+box-shadow:0 0 20px #38bdf8;
 z-index:9999;
-}
-
-.visitor-box{
-margin-top:40px;
 }
 
 footer{
@@ -302,7 +304,7 @@ color:#94a3b8;
 <canvas id="galaxy"></canvas>
 
 <!-- MUSIC -->
-<audio id="music" autoplay loop>
+<audio id="music" loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -333,6 +335,70 @@ color:#94a3b8;
 <a class="btn" href="https://wa.me/62895386427676">WhatsApp</a>
 </div>
 
+<div class="discord">
+<img src="https://lanyard.cnrad.dev/api/discord-id">
+</div>
+
+<div id="skills" class="section">
+
+<h2>Skills</h2>
+
+<div class="skills">
+
+<div class="skill"><i class="fa-brands fa-js"></i>JavaScript</div>
+<div class="skill"><i class="fa-brands fa-discord"></i>Discord API</div>
+<div class="skill"><i class="fa-solid fa-robot"></i>AI API</div>
+<div class="skill"><i class="fa-solid fa-code"></i>Web Development</div>
+<div class="skill"><i class="fa-brands fa-whatsapp"></i>WhatsApp Bot</div>
+<div class="skill"><i class="fa-solid fa-server"></i>Discord Development</div>
+
+</div>
+
+</div>
+
+<div id="projects" class="section">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="project"><i class="fa-solid fa-gamepad"></i>Game Bot</div>
+<div class="project"><i class="fa-solid fa-brain"></i>AI Chat Bot</div>
+<div class="project"><i class="fa-solid fa-ticket"></i>Ticket Bot</div>
+<div class="project"><i class="fa-solid fa-comments"></i>Chat Bot</div>
+
+</div>
+
+</div>
+
+<div id="contact" class="section">
+
+<h2>Contact</h2>
+
+<div class="contact">
+
+<a href="https://tiktok.com/@fiicruzh"><i class="fa-brands fa-tiktok"></i></a>
+<a href="https://discord.gg/uKFv8mdM"><i class="fa-brands fa-discord"></i></a>
+<a href="https://wa.me/62895386427676"><i class="fa-brands fa-whatsapp"></i></a>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Rating</h2>
+
+<div class="rating">
+<i class="fa fa-star" onclick="rate(1)"></i>
+<i class="fa fa-star" onclick="rate(2)"></i>
+<i class="fa fa-star" onclick="rate(3)"></i>
+<i class="fa fa-star" onclick="rate(4)"></i>
+<i class="fa fa-star" onclick="rate(5)"></i>
+</div>
+
+</div>
+
 <div class="visitor-box">
 Total Visitors: <span id="visitors">Loading...</span>
 </div>
@@ -350,10 +416,6 @@ Total Visitors: <span id="visitors">Loading...</span>
 let music=document.getElementById("music")
 music.volume=0.4
 
-document.addEventListener("click",()=>{
-music.play()
-},{once:true})
-
 function toggleMusic(){
 
 if(music.paused){
@@ -363,6 +425,10 @@ music.pause()
 }
 
 }
+
+document.addEventListener("click",()=>{
+music.play()
+},{once:true})
 
 /* CURSOR */
 
@@ -390,7 +456,22 @@ setTimeout(typing,60)
 
 typing()
 
-/* VISITOR */
+/* RATING */
+
+function rate(star){
+
+let stars=document.querySelectorAll(".rating i")
+
+stars.forEach((s,i)=>{
+if(i<star){s.classList.add("active")}
+else{s.classList.remove("active")}
+})
+
+localStorage.setItem("rating",star)
+
+}
+
+/* VISITOR GLOBAL */
 
 fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
 .then(res=>res.json())
@@ -398,7 +479,7 @@ fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
 document.getElementById("visitors").innerText=data.value
 })
 
-/* GALAXY */
+/* GALAXY PARTICLES */
 
 const canvas=document.getElementById("galaxy")
 const ctx=canvas.getContext("2d")
