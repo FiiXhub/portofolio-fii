@@ -6,7 +6,7 @@
 
 <title>FII Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -15,50 +15,50 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
 
-/* BACKGROUND AURA */
-
 body{
+font-family:'Poppins',sans-serif;
 background:#020617;
 color:white;
 overflow-x:hidden;
 }
 
+/* AURORA BACKGROUND */
+
 body::before{
 content:"";
 position:fixed;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#38bdf8,transparent 70%);
+width:800px;
+height:800px;
+background:radial-gradient(circle,#38bdf8,transparent 60%);
 top:-200px;
 left:-200px;
 filter:blur(120px);
-animation:aura1 10s infinite alternate;
+animation:auraMove 12s infinite alternate;
 z-index:-1;
 }
 
 body::after{
 content:"";
 position:fixed;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#6366f1,transparent 70%);
+width:800px;
+height:800px;
+background:radial-gradient(circle,#6366f1,transparent 60%);
 bottom:-200px;
 right:-200px;
 filter:blur(120px);
-animation:aura2 12s infinite alternate;
+animation:auraMove2 14s infinite alternate;
 z-index:-1;
 }
 
-@keyframes aura1{
+@keyframes auraMove{
 0%{transform:translate(0,0)}
 100%{transform:translate(200px,200px)}
 }
 
-@keyframes aura2{
+@keyframes auraMove2{
 0%{transform:translate(0,0)}
 100%{transform:translate(-200px,-200px)}
 }
@@ -70,18 +70,21 @@ position:fixed;
 top:0;
 width:100%;
 background:rgba(0,0,0,0.4);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(20px);
 display:flex;
 justify-content:center;
 gap:40px;
-padding:15px;
+padding:18px;
 z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 nav a{
+font-family:'Orbitron';
 color:white;
 text-decoration:none;
-font-weight:500;
+font-size:14px;
+letter-spacing:1px;
 transition:.3s;
 }
 
@@ -94,7 +97,7 @@ color:#38bdf8;
 .container{
 max-width:1100px;
 margin:auto;
-padding:120px 20px 40px;
+padding:130px 20px 40px;
 text-align:center;
 }
 
@@ -113,35 +116,43 @@ animation:float 4s ease-in-out infinite;
 50%{transform:translateY(-12px)}
 }
 
-/* GRADIENT TITLE */
+/* TITLE */
 
 h1{
 margin-top:20px;
-font-size:36px;
+font-size:38px;
+font-family:'Orbitron';
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 -webkit-background-clip:text;
 color:transparent;
 }
 
 .subtitle{
+margin-top:6px;
 color:#cbd5f5;
+letter-spacing:1px;
 }
 
 /* ABOUT */
 
 .about{
 margin-top:20px;
-max-width:700px;
+max-width:720px;
 margin-left:auto;
 margin-right:auto;
-line-height:1.7;
-color:#cbd5f5;
+line-height:1.8;
+font-size:16px;
+color:#dbeafe;
+background:rgba(255,255,255,0.03);
+padding:20px;
+border-radius:14px;
+backdrop-filter:blur(10px);
 }
 
 /* BUTTON */
 
 .buttons{
-margin-top:25px;
+margin-top:30px;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
@@ -149,29 +160,31 @@ gap:15px;
 }
 
 .btn{
-padding:12px 28px;
+padding:14px 30px;
 border-radius:40px;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 text-decoration:none;
 color:white;
 font-weight:500;
-transition:.3s;
+transition:.4s;
+box-shadow:0 0 15px #38bdf8;
 }
 
 .btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 20px #38bdf8;
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 0 25px #38bdf8,0 0 40px #6366f1;
 }
 
 /* SECTION */
 
 .section{
-margin-top:70px;
+margin-top:80px;
 }
 
 .section h2{
 margin-bottom:25px;
 font-size:28px;
+font-family:'Orbitron';
 color:#38bdf8;
 }
 
@@ -184,10 +197,11 @@ gap:20px;
 }
 
 .skill{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
-transition:.3s;
+background:rgba(255,255,255,0.05);
+padding:22px;
+border-radius:14px;
+transition:.4s;
+backdrop-filter:blur(10px);
 }
 
 .skill i{
@@ -198,7 +212,6 @@ color:#38bdf8;
 
 .skill:hover{
 transform:translateY(-8px);
-background:#334155;
 box-shadow:0 0 20px #38bdf8;
 }
 
@@ -211,10 +224,10 @@ gap:20px;
 }
 
 .project{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
-transition:.3s;
+background:rgba(255,255,255,0.05);
+padding:22px;
+border-radius:14px;
+transition:.4s;
 }
 
 .project i{
@@ -225,7 +238,6 @@ color:#6366f1;
 
 .project:hover{
 transform:translateY(-8px);
-background:#334155;
 box-shadow:0 0 20px #6366f1;
 }
 
@@ -234,26 +246,26 @@ box-shadow:0 0 20px #6366f1;
 .contact{
 display:flex;
 justify-content:center;
-gap:25px;
+gap:30px;
 margin-top:20px;
 }
 
 .contact a{
-font-size:26px;
+font-size:28px;
 color:white;
 transition:.3s;
 }
 
 .contact a:hover{
 color:#38bdf8;
-transform:scale(1.2);
+transform:scale(1.3);
 }
 
 /* RATING */
 
 .rating{
 margin-top:20px;
-font-size:30px;
+font-size:34px;
 }
 
 .rating i{
@@ -264,14 +276,14 @@ transition:.3s;
 
 .rating i.active{
 color:gold;
-transform:scale(1.2);
+text-shadow:0 0 10px gold;
 }
 
 /* VISITOR */
 
 .visitor-box{
 margin-top:40px;
-background:#1e293b;
+background:rgba(255,255,255,0.05);
 padding:20px;
 border-radius:12px;
 }
@@ -282,14 +294,30 @@ border-radius:12px;
 position:fixed;
 bottom:25px;
 right:25px;
-background:#38bdf8;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
 border:none;
 border-radius:50%;
-width:50px;
-height:50px;
+width:55px;
+height:55px;
 font-size:20px;
 color:white;
 cursor:pointer;
+box-shadow:0 0 20px #38bdf8;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+nav{
+gap:20px;
+font-size:12px;
+}
+
+h1{
+font-size:30px;
+}
+
 }
 
 footer{
@@ -321,8 +349,8 @@ color:#94a3b8;
 
 <div id="about" class="about">
 Saya adalah developer yang fokus pada pembuatan bot automation seperti Discord Bot,
-WhatsApp Bot, dan AI Chat Bot. Saya mengembangkan sistem bot untuk komunitas,
-game bot, sistem tiket, dan integrasi AI.
+WhatsApp Bot, dan AI Chat Bot.  
+Saya membangun berbagai sistem seperti **Game Bot, Ticket Bot, Chat Bot, dan integrasi AI** untuk komunitas dan server.
 </div>
 
 <div class="buttons">
@@ -384,13 +412,11 @@ game bot, sistem tiket, dan integrasi AI.
 <h2>Rating Website</h2>
 
 <div class="rating">
-
 <i class="fa fa-star" onclick="rate(1)"></i>
 <i class="fa fa-star" onclick="rate(2)"></i>
 <i class="fa fa-star" onclick="rate(3)"></i>
 <i class="fa fa-star" onclick="rate(4)"></i>
 <i class="fa fa-star" onclick="rate(5)"></i>
-
 </div>
 
 </div>
@@ -405,7 +431,7 @@ game bot, sistem tiket, dan integrasi AI.
 
 </div>
 
-<audio id="music" loop>
+<audio id="music" autoplay loop>
 <source src="music.mp3" type="audio/mpeg">
 </audio>
 
@@ -414,6 +440,12 @@ game bot, sistem tiket, dan integrasi AI.
 </button>
 
 <script>
+
+let music=document.getElementById("music")
+
+document.addEventListener("click",()=>{
+music.play()
+},{once:true})
 
 /* VISITOR */
 
@@ -429,16 +461,14 @@ localStorage.setItem("visitors",count)
 
 document.getElementById("visitorCount").innerText=count
 
-/* MUSIC */
-
 function toggleMusic(){
-let music=document.getElementById("music")
 
 if(music.paused){
 music.play()
 }else{
 music.pause()
 }
+
 }
 
 /* RATING */
