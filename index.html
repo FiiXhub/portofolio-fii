@@ -15,7 +15,6 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-cursor:none;
 }
 
 body{
@@ -47,20 +46,6 @@ left:0;
 width:100%;
 height:100%;
 z-index:-2;
-}
-
-/* CURSOR */
-
-.cursor{
-position:fixed;
-width:20px;
-height:20px;
-border-radius:50%;
-background:#38bdf8;
-pointer-events:none;
-box-shadow:0 0 20px #38bdf8,0 0 40px #38bdf8;
-transform:translate(-50%,-50%);
-z-index:9999;
 }
 
 /* NAVBAR */
@@ -154,7 +139,7 @@ flex-wrap:wrap;
 display:flex;
 align-items:center;
 gap:10px;
-padding:14px 28px;
+padding:12px 22px;
 border-radius:40px;
 text-decoration:none;
 color:white;
@@ -163,17 +148,8 @@ backdrop-filter:blur(12px);
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.1);
 transition:.3s;
+font-size:14px;
 }
-
-.btn i{
-font-size:18px;
-}
-
-/* BRAND COLORS */
-
-.tiktok i{color:#ff0050}
-.discord i{color:#5865F2}
-.whatsapp i{color:#25D366}
 
 .btn:hover{
 transform:translateY(-3px) scale(1.05);
@@ -196,53 +172,54 @@ color:#38bdf8;
 
 .skills{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:15px;
 }
 
 .skill{
 background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:12px;
-backdrop-filter:blur(10px);
+padding:14px;
+border-radius:10px;
+font-size:14px;
 transition:.3s;
 }
 
 .skill i{
-font-size:30px;
-margin-bottom:10px;
+font-size:22px;
+margin-bottom:6px;
 color:#38bdf8;
 }
 
 .skill:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #38bdf8;
+transform:translateY(-6px);
+box-shadow:0 0 15px #38bdf8;
 }
 
 /* PROJECT */
 
 .projects{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
 }
 
 .project{
 background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:12px;
+padding:15px;
+border-radius:10px;
+font-size:14px;
 transition:.3s;
 }
 
 .project i{
-font-size:26px;
+font-size:22px;
 color:#6366f1;
-margin-bottom:10px;
+margin-bottom:6px;
 }
 
 .project:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px #6366f1;
+transform:translateY(-6px);
+box-shadow:0 0 15px #6366f1;
 }
 
 /* CONTACT */
@@ -255,7 +232,7 @@ margin-top:20px;
 }
 
 .contact a{
-font-size:32px;
+font-size:28px;
 transition:.3s;
 }
 
@@ -263,17 +240,11 @@ transition:.3s;
 transform:scale(1.3);
 }
 
-/* BRAND COLORS CONTACT */
-
-.contact .fa-tiktok{color:#ff0050}
-.contact .fa-discord{color:#5865F2}
-.contact .fa-whatsapp{color:#25D366}
-
 /* RATING */
 
 .rating{
 margin-top:20px;
-font-size:34px;
+font-size:32px;
 }
 
 .rating i{
@@ -318,8 +289,6 @@ color:#94a3b8;
 
 <body>
 
-<div class="cursor"></div>
-
 <video class="bg" autoplay muted loop>
 <source src="background.mp4" type="video/mp4">
 </video>
@@ -353,9 +322,7 @@ color:#94a3b8;
 
 <div class="about">
 Hi, I'm <b>FII</b>, a developer focused on building automation systems, AI integrations,
-Discord bots, and modern web applications.  
-I enjoy creating tools that help communities, automate workflows,
-and push technology to the next level.
+Discord bots, and modern web applications.
 </div>
 
 <div class="buttons">
@@ -455,14 +422,6 @@ else{music.pause()}
 }
 
 document.addEventListener("click",()=>{music.play()},{once:true})
-
-/* CURSOR */
-
-const cursor=document.querySelector(".cursor")
-document.addEventListener("mousemove",e=>{
-cursor.style.left=e.clientX+"px"
-cursor.style.top=e.clientY+"px"
-})
 
 /* TYPING */
 
