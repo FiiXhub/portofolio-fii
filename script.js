@@ -1,76 +1,26 @@
-// MATRIX BACKGROUND
+// visitor counter
 
-const canvas = document.getElementById("matrix")
-const ctx = canvas.getContext("2d")
+let visitors = localStorage.getItem("visitors")
 
-canvas.height = window.innerHeight
-canvas.width = window.innerWidth
-
-const letters = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-const fontSize = 14
-const columns = canvas.width / fontSize
-
-const drops = []
-
-for(let i = 0; i < columns; i++){
-drops[i] = 1
+if(!visitors){
+visitors = 1
+}else{
+visitors = Number(visitors) + 1
 }
 
-function draw(){
+localStorage.setItem("visitors",visitors)
 
-ctx.fillStyle = "rgba(0,0,0,0.05)"
-ctx.fillRect(0,0,canvas.width,canvas.height)
+document.getElementById("visitor-count").innerText = visitors
 
-ctx.fillStyle = "#00ff9c"
-ctx.font = fontSize + "px monospace"
 
-for(let i=0;i<drops.length;i++){
 
-const text = letters[Math.floor(Math.random()*letters.length)]
+// rating system
 
-ctx.fillText(text,i*fontSize,drops[i]*fontSize)
+function rate(star){
 
-if(drops[i]*fontSize > canvas.height && Math.random() > 0.975){
-drops[i] = 0
-}
+localStorage.setItem("rating",star)
 
-drops[i]++
+document.getElementById("rating-result").innerText =
+"Terima kasih memberi rating " + star + " ⭐"
 
 }
-
-}
-
-setInterval(draw,33)
-
-
-// TERMINAL SYSTEM
-
-const input = document.getElementById("terminal-input")
-const output = document.getElementById("terminal-output")
-
-input.addEventListener("keydown",function(e){
-
-if(e.key === "Enter"){
-
-const cmd = input.value
-
-output.innerHTML += "<p>> "+cmd+"</p>"
-
-if(cmd === "help"){
-output.innerHTML += "<p>commands : help, about, projects</p>"
-}
-
-if(cmd === "about"){
-output.innerHTML += "<p>Discord Bot & AI Developer</p>"
-}
-
-if(cmd === "projects"){
-output.innerHTML += "<p>Ticket Bot | AI Bot | Game Bot</p>"
-}
-
-input.value=""
-
-}
-
-})
