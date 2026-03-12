@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>Fii Hacker Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="desktop">
+
+<div class="dock">
+
+<button onclick="openWindow('about')">👤</button>
+<button onclick="openWindow('projects')">💻</button>
+<button onclick="openWindow('github')">📊</button>
+<button onclick="openWindow('map')">🌍</button>
+<button onclick="openWindow('terminal')">⌨️</button>
+<button onclick="openWindow('chatbot')">🤖</button>
+<button onclick="openWindow('contact')">📱</button>
+
+</div>
+
+
+<div id="about" class="window">
+
+<h2>About Fii</h2>
+
+<img src="foto.png" class="profile">
+
+<p>
+
+Hi I'm Fii.  
+Bot developer specialized in automation systems,
+AI integrations, Discord bots and web tools.
+
+</p>
+
+<h3>Skills</h3>
+
+<ul>
+<li>JavaScript</li>
+<li>Discord API</li>
+<li>AI API</li>
+<li>Web Development</li>
+<li>WhatsApp Development</li>
+<li>Discord Development</li>
+</ul>
+
+</div>
+
+
+<div id="projects" class="window">
+
+<h2>Projects</h2>
+
+<ul>
+
+<li>Game Bot AI</li>
+<li>Chat Bot Tiket</li>
+<li>Chat Bot WhatsApp</li>
+<li>Bot Discord</li>
+
+</ul>
+
+</div>
+
+
+<div id="github" class="window">
+
+<h2>GitHub Projects</h2>
+
+<div id="repos"></div>
+
+</div>
+
+
+<div id="map" class="window">
+
+<h2>Visitor Map</h2>
+
+<p id="country"></p>
+
+<p>Total Visits: <span id="visits"></span></p>
+
+</div>
+
+
+<div id="terminal" class="window">
+
+<h2>Developer Terminal</h2>
+
+<div id="terminalOutput"></div>
+
+<input id="terminalInput" placeholder="type command">
+
+</div>
+
+
+<div id="chatbot" class="window">
+
+<h2>AI Assistant</h2>
+
+<div id="chatlog"></div>
+
+<input id="chatinput" placeholder="Ask something...">
+
+</div>
+
+
+<div id="contact" class="window">
+
+<h2>Contact</h2>
+
+<div class="contacts">
+
+<a href="https://tiktok.com/@fiicruzh">🎵 TikTok</a>
+
+<a href="https://discord.gg/uKFv8mdM">💬 Discord Server</a>
+
+<a href="https://wa.me/62895386427676">📱 WhatsApp</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script src="desktop.js"></script>
+<script src="github.js"></script>
+<script src="visitor.js"></script>
+<script src="chatbot.js"></script>
+
+</body>
+
+</html>
