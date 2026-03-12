@@ -15,52 +15,52 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-scroll-behavior:smooth;
+cursor:none;
 }
 
 body{
 font-family:'Poppins',sans-serif;
-background:#020617;
 color:white;
 overflow-x:hidden;
+background:#000;
 }
 
-/* AURORA BACKGROUND */
+/* VIDEO BACKGROUND */
 
-body::before{
-content:"";
+video.bg{
 position:fixed;
-width:800px;
-height:800px;
-background:radial-gradient(circle,#38bdf8,transparent 60%);
-top:-200px;
-left:-200px;
-filter:blur(120px);
-animation:auraMove 12s infinite alternate;
-z-index:-1;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-3;
+filter:brightness(0.35);
 }
 
-body::after{
-content:"";
+/* GALAXY PARTICLES */
+
+canvas{
 position:fixed;
-width:800px;
-height:800px;
-background:radial-gradient(circle,#6366f1,transparent 60%);
-bottom:-200px;
-right:-200px;
-filter:blur(120px);
-animation:auraMove2 14s infinite alternate;
-z-index:-1;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-2;
 }
 
-@keyframes auraMove{
-0%{transform:translate(0,0)}
-100%{transform:translate(200px,200px)}
-}
+/* CURSOR GLOW */
 
-@keyframes auraMove2{
-0%{transform:translate(0,0)}
-100%{transform:translate(-200px,-200px)}
+.cursor{
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:#38bdf8;
+pointer-events:none;
+box-shadow:0 0 20px #38bdf8,0 0 40px #38bdf8;
+transform:translate(-50%,-50%);
+z-index:9999;
 }
 
 /* NAVBAR */
@@ -69,21 +69,19 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(20px);
 display:flex;
 justify-content:center;
 gap:40px;
 padding:18px;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
 z-index:999;
-border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 nav a{
-font-family:'Orbitron';
 color:white;
 text-decoration:none;
-font-size:14px;
+font-family:'Orbitron';
 letter-spacing:1px;
 transition:.3s;
 }
@@ -108,55 +106,42 @@ width:170px;
 border-radius:50%;
 border:4px solid #38bdf8;
 box-shadow:0 0 40px #38bdf8;
-animation:float 4s ease-in-out infinite;
+animation:float 4s infinite ease-in-out;
 }
 
 @keyframes float{
 0%,100%{transform:translateY(0)}
-50%{transform:translateY(-12px)}
+50%{transform:translateY(-15px)}
 }
 
 /* TITLE */
 
 h1{
 margin-top:20px;
-font-size:38px;
 font-family:'Orbitron';
+font-size:38px;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 -webkit-background-clip:text;
 color:transparent;
 }
 
-.subtitle{
-margin-top:6px;
-color:#cbd5f5;
-letter-spacing:1px;
-}
+/* TYPING BIO */
 
-/* ABOUT */
-
-.about{
-margin-top:20px;
-max-width:720px;
-margin-left:auto;
-margin-right:auto;
-line-height:1.8;
+.typing{
+margin-top:10px;
 font-size:16px;
-color:#dbeafe;
-background:rgba(255,255,255,0.03);
-padding:20px;
-border-radius:14px;
-backdrop-filter:blur(10px);
+color:#cbd5f5;
+height:20px;
 }
 
-/* BUTTON */
+/* BUTTONS */
 
 .buttons{
 margin-top:30px;
 display:flex;
-flex-wrap:wrap;
 justify-content:center;
 gap:15px;
+flex-wrap:wrap;
 }
 
 .btn{
@@ -165,14 +150,13 @@ border-radius:40px;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 text-decoration:none;
 color:white;
-font-weight:500;
+box-shadow:0 0 20px #38bdf8;
 transition:.4s;
-box-shadow:0 0 15px #38bdf8;
 }
 
 .btn:hover{
-transform:translateY(-3px) scale(1.05);
-box-shadow:0 0 25px #38bdf8,0 0 40px #6366f1;
+transform:scale(1.08);
+box-shadow:0 0 35px #38bdf8;
 }
 
 /* SECTION */
@@ -183,7 +167,6 @@ margin-top:80px;
 
 .section h2{
 margin-bottom:25px;
-font-size:28px;
 font-family:'Orbitron';
 color:#38bdf8;
 }
@@ -198,10 +181,10 @@ gap:20px;
 
 .skill{
 background:rgba(255,255,255,0.05);
-padding:22px;
-border-radius:14px;
-transition:.4s;
+padding:20px;
+border-radius:12px;
 backdrop-filter:blur(10px);
+transition:.3s;
 }
 
 .skill i{
@@ -211,7 +194,7 @@ color:#38bdf8;
 }
 
 .skill:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
 box-shadow:0 0 20px #38bdf8;
 }
 
@@ -225,19 +208,19 @@ gap:20px;
 
 .project{
 background:rgba(255,255,255,0.05);
-padding:22px;
-border-radius:14px;
-transition:.4s;
+padding:20px;
+border-radius:12px;
+transition:.3s;
 }
 
 .project i{
-font-size:28px;
-margin-bottom:10px;
+font-size:26px;
 color:#6366f1;
+margin-bottom:10px;
 }
 
 .project:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
 box-shadow:0 0 20px #6366f1;
 }
 
@@ -261,6 +244,16 @@ color:#38bdf8;
 transform:scale(1.3);
 }
 
+/* DISCORD PRESENCE */
+
+.discord{
+margin-top:30px;
+}
+
+.discord img{
+border-radius:12px;
+}
+
 /* RATING */
 
 .rating{
@@ -271,7 +264,6 @@ font-size:34px;
 .rating i{
 cursor:pointer;
 color:#444;
-transition:.3s;
 }
 
 .rating i.active{
@@ -283,41 +275,6 @@ text-shadow:0 0 10px gold;
 
 .visitor-box{
 margin-top:40px;
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:12px;
-}
-
-/* MUSIC */
-
-.music-btn{
-position:fixed;
-bottom:25px;
-right:25px;
-background:linear-gradient(90deg,#38bdf8,#6366f1);
-border:none;
-border-radius:50%;
-width:55px;
-height:55px;
-font-size:20px;
-color:white;
-cursor:pointer;
-box-shadow:0 0 20px #38bdf8;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-nav{
-gap:20px;
-font-size:12px;
-}
-
-h1{
-font-size:30px;
-}
-
 }
 
 footer{
@@ -330,12 +287,19 @@ color:#94a3b8;
 
 <body>
 
+<div class="cursor"></div>
+
+<video class="bg" autoplay muted loop>
+<source src="background.mp4" type="video/mp4">
+</video>
+
+<canvas id="galaxy"></canvas>
+
 <nav>
 <a href="#">Home</a>
-<a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Project</a>
-<a href="#contact">Kontak</a>
+<a href="#contact">Contact</a>
 </nav>
 
 <div class="container">
@@ -345,18 +309,17 @@ color:#94a3b8;
 </div>
 
 <h1>FII Developer</h1>
-<div class="subtitle">Bot Developer • Automation • AI Integration</div>
 
-<div id="about" class="about">
-Saya adalah developer yang fokus pada pembuatan bot automation seperti Discord Bot,
-WhatsApp Bot, dan AI Chat Bot.  
-Saya membangun berbagai sistem seperti Game Bot, Ticket Bot, Chat Bot, dan integrasi AI untuk komunitas dan server.
-</div>
+<div class="typing" id="typing"></div>
 
 <div class="buttons">
 <a class="btn" href="https://tiktok.com/@fiicruzh">TikTok</a>
-<a class="btn" href="https://discord.gg/uKFv8mdM">Discord Server</a>
+<a class="btn" href="https://discord.gg/uKFv8mdM">Discord</a>
 <a class="btn" href="https://wa.me/62895386427676">WhatsApp</a>
+</div>
+
+<div class="discord">
+<img src="https://lanyard.cnrad.dev/api/discord-id">
 </div>
 
 <div id="skills" class="section">
@@ -365,12 +328,12 @@ Saya membangun berbagai sistem seperti Game Bot, Ticket Bot, Chat Bot, dan integ
 
 <div class="skills">
 
-<div class="skill"><i class="fa-brands fa-js"></i><div>JavaScript</div></div>
-<div class="skill"><i class="fa-brands fa-discord"></i><div>Discord API</div></div>
-<div class="skill"><i class="fa-solid fa-robot"></i><div>AI API</div></div>
-<div class="skill"><i class="fa-solid fa-code"></i><div>Web Development</div></div>
-<div class="skill"><i class="fa-brands fa-whatsapp"></i><div>WhatsApp Bot</div></div>
-<div class="skill"><i class="fa-solid fa-server"></i><div>Discord Development</div></div>
+<div class="skill"><i class="fa-brands fa-js"></i>JavaScript</div>
+<div class="skill"><i class="fa-brands fa-discord"></i>Discord API</div>
+<div class="skill"><i class="fa-solid fa-robot"></i>AI API</div>
+<div class="skill"><i class="fa-solid fa-code"></i>Web Development</div>
+<div class="skill"><i class="fa-brands fa-whatsapp"></i>WhatsApp Bot</div>
+<div class="skill"><i class="fa-solid fa-server"></i>Discord Development</div>
 
 </div>
 
@@ -382,12 +345,10 @@ Saya membangun berbagai sistem seperti Game Bot, Ticket Bot, Chat Bot, dan integ
 
 <div class="projects">
 
-<div class="project"><i class="fa-solid fa-gamepad"></i><div>Game Bot</div></div>
-<div class="project"><i class="fa-solid fa-brain"></i><div>AI Chat Bot</div></div>
-<div class="project"><i class="fa-solid fa-ticket"></i><div>Bot Tiket</div></div>
-<div class="project"><i class="fa-solid fa-comments"></i><div>Chat Bot</div></div>
-<div class="project"><i class="fa-brands fa-whatsapp"></i><div>WhatsApp Bot</div></div>
-<div class="project"><i class="fa-brands fa-discord"></i><div>Discord Bot</div></div>
+<div class="project"><i class="fa-solid fa-gamepad"></i>Game Bot</div>
+<div class="project"><i class="fa-solid fa-brain"></i>AI Chat Bot</div>
+<div class="project"><i class="fa-solid fa-ticket"></i>Ticket Bot</div>
+<div class="project"><i class="fa-solid fa-comments"></i>Chat Bot</div>
 
 </div>
 
@@ -395,7 +356,7 @@ Saya membangun berbagai sistem seperti Game Bot, Ticket Bot, Chat Bot, dan integ
 
 <div id="contact" class="section">
 
-<h2>Kontak</h2>
+<h2>Contact</h2>
 
 <div class="contact">
 
@@ -409,7 +370,7 @@ Saya membangun berbagai sistem seperti Game Bot, Ticket Bot, Chat Bot, dan integ
 
 <div class="section">
 
-<h2>Rating Website</h2>
+<h2>Rating</h2>
 
 <div class="rating">
 <i class="fa fa-star" onclick="rate(1)"></i>
@@ -422,7 +383,7 @@ Saya membangun berbagai sistem seperti Game Bot, Ticket Bot, Chat Bot, dan integ
 </div>
 
 <div class="visitor-box">
-<p>Total Pengunjung: <span id="visitorCount">0</span></p>
+Total Visitors: <span id="visitors">Loading...</span>
 </div>
 
 <footer>
@@ -431,64 +392,33 @@ Saya membangun berbagai sistem seperti Game Bot, Ticket Bot, Chat Bot, dan integ
 
 </div>
 
-<audio id="music" autoplay loop muted>
-<source src="music.mpeg" type="audio/mpeg">
-</audio>
-
-<button class="music-btn" onclick="toggleMusic()">
-<i class="fa-solid fa-music"></i>
-</button>
-
 <script>
 
-let music=document.getElementById("music")
+/* CURSOR */
 
-music.volume = 0.4
+const cursor=document.querySelector(".cursor")
 
-window.addEventListener("load",()=>{
-
-music.muted=false
-
-let playPromise = music.play()
-
-if(playPromise !== undefined){
-playPromise.catch(()=>{})
-}
-
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px"
+cursor.style.top=e.clientY+"px"
 })
 
-function enableMusic(){
-music.muted=false
-music.play()
-}
+/* TYPING */
 
-document.addEventListener("click",enableMusic,{once:true})
-document.addEventListener("scroll",enableMusic,{once:true})
-document.addEventListener("touchstart",enableMusic,{once:true})
+const text="Bot Developer • Automation • AI Integration"
+let i=0
 
-/* VISITOR */
+function typing(){
 
-let count = localStorage.getItem("visitors")
-
-if(!count){
-count=1
-}else{
-count++
-}
-
-localStorage.setItem("visitors",count)
-
-document.getElementById("visitorCount").innerText=count
-
-function toggleMusic(){
-
-if(music.paused){
-music.play()
-}else{
-music.pause()
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i)
+i++
+setTimeout(typing,60)
 }
 
 }
+
+typing()
 
 /* RATING */
 
@@ -497,19 +427,58 @@ function rate(star){
 let stars=document.querySelectorAll(".rating i")
 
 stars.forEach((s,i)=>{
-if(i<star){
-s.classList.add("active")
-}else{
-s.classList.remove("active")
-}
+if(i<star){s.classList.add("active")}
+else{s.classList.remove("active")}
 })
 
 localStorage.setItem("rating",star)
 
 }
 
+/* VISITOR GLOBAL */
+
+fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("visitors").innerText=data.value
+})
+
+/* GALAXY PARTICLES */
+
+const canvas=document.getElementById("galaxy")
+const ctx=canvas.getContext("2d")
+
+canvas.width=window.innerWidth
+canvas.height=window.innerHeight
+
+let stars=[]
+
+for(let i=0;i<120;i++){
+stars.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2
+})
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height)
+
+stars.forEach(s=>{
+ctx.beginPath()
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2)
+ctx.fillStyle="white"
+ctx.fill()
+})
+
+requestAnimationFrame(draw)
+
+}
+
+draw()
+
 </script>
 
 </body>
 </html>
-
