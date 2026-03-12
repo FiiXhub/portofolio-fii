@@ -1,33 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>FII Developer Portfolio</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<canvas id="matrix"></canvas>
-
 <header>
 
-<h1>FII DEV</h1>
+<h1>FII Developer</h1>
 
 <nav>
-
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
-<a href="#terminal">Terminal</a>
-<a href="#contact">Contact</a>
-
+<a href="#about">Tentang</a>
+<a href="#skills">Skill</a>
+<a href="#projects">Project</a>
+<a href="#contact">Kontak</a>
 </nav>
 
 </header>
@@ -37,20 +32,25 @@
 
 <img src="assets/foto.png" class="profile">
 
-<h2>Discord Bot & AI Developer</h2>
+<h2>Halo, Saya FII</h2>
 
-<p>Building automation, AI bots, and modern systems</p>
+<p>
+Saya adalah developer yang fokus membuat bot automation,
+AI chatbot, dan sistem web untuk komunitas dan server.
+</p>
 
 </section>
 
 
 <section id="about">
 
-<h2>About Me</h2>
+<h2>Tentang Saya</h2>
 
 <p>
-Developer focused on Discord bots, AI systems,
-automation tools and modern web technology.
+Saya adalah developer yang memiliki minat besar dalam
+pembuatan bot Discord, WhatsApp bot, serta integrasi AI API.
+Saya sering membuat sistem automation untuk membantu
+server komunitas dan berbagai project teknologi.
 </p>
 
 </section>
@@ -58,15 +58,16 @@ automation tools and modern web technology.
 
 <section id="skills">
 
-<h2>Skills</h2>
+<h2>Skill</h2>
 
-<div class="skills">
+<div class="grid">
 
-<div class="skill">JavaScript</div>
-<div class="skill">Node.js</div>
-<div class="skill">Discord API</div>
-<div class="skill">AI API</div>
-<div class="skill">Web Development</div>
+<div class="card">JavaScript</div>
+<div class="card">Discord API</div>
+<div class="card">AI API</div>
+<div class="card">Web Development</div>
+<div class="card">WhatsApp Development</div>
+<div class="card">Discord Development</div>
 
 </div>
 
@@ -75,53 +76,72 @@ automation tools and modern web technology.
 
 <section id="projects">
 
-<h2>Projects</h2>
+<h2>Project</h2>
 
-<div class="projects">
+<div class="grid">
 
-<div class="card">
-<h3>Ticket Bot</h3>
-<p>Discord automatic ticket system</p>
-</div>
-
-<div class="card">
-<h3>AI Chat Bot</h3>
-<p>AI bot for answering questions</p>
-</div>
-
-<div class="card">
-<h3>Game Bot</h3>
-<p>Word game system for Discord</p>
-</div>
+<div class="card">Game Bot</div>
+<div class="card">AI Chat Bot</div>
+<div class="card">Tiket Chat Bot</div>
+<div class="card">WhatsApp Bot</div>
+<div class="card">Discord Bot</div>
 
 </div>
 
 </section>
 
 
-<section id="terminal">
+<section>
 
-<h2>Hacker Terminal</h2>
+<h2>Rating Portfolio</h2>
 
-<div class="terminal">
+<div class="rating">
 
-<div id="terminal-output"></div>
-
-<input id="terminal-input" placeholder="type command...">
+<span onclick="rate(1)">⭐</span>
+<span onclick="rate(2)">⭐</span>
+<span onclick="rate(3)">⭐</span>
+<span onclick="rate(4)">⭐</span>
+<span onclick="rate(5)">⭐</span>
 
 </div>
+
+<p id="rating-result"></p>
+
+</section>
+
+
+<section>
+
+<h2>Pengunjung</h2>
+
+<p>Total pengunjung:</p>
+
+<h3 id="visitor-count">0</h3>
 
 </section>
 
 
 <section id="contact">
 
-<h2>Contact</h2>
+<h2>Kontak</h2>
 
-<p>Email : emailkamu@gmail.com</p>
-<p>Discord : username#0001</p>
+<div class="contact">
 
-<img src="https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=tokyonight">
+<a href="https://tiktok.com/@fiicruzh">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+<a href="https://discord.gg/uKFv8mdM">
+<i class="fa-brands fa-discord"></i>
+</a>
+
+<a href="https://wa.me/62895386427676">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+</div>
+
+<p>Discord : fiicruzh</p>
 
 </section>
 
@@ -135,5 +155,4 @@ automation tools and modern web technology.
 <script src="script.js"></script>
 
 </body>
-
 </html>
