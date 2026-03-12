@@ -6,12 +6,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>FII Developer Portfolio</title>
+<title>FII Developer</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -23,12 +25,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 <h1>FII Developer</h1>
 
 <nav>
-
 <a href="#about">Tentang</a>
 <a href="#skills">Skill</a>
 <a href="#projects">Project</a>
 <a href="#contact">Kontak</a>
-
 </nav>
 
 </header>
@@ -39,11 +39,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <img src="foto.png" class="profile">
 
-<h2>Halo, Saya FII</h2>
+<h2>FII Developer</h2>
 
-<p>
-Developer yang fokus membuat bot automation,
-AI chatbot, dan web system untuk komunitas.
+<p class="desc">
+
+Developer yang berfokus pada pengembangan sistem automation,
+AI chatbot, dan bot platform seperti Discord dan WhatsApp.
+
+Saya membangun solusi teknologi yang membantu komunitas
+dan server menjadi lebih efisien, otomatis, dan modern.
+
 </p>
 
 </section>
@@ -56,11 +61,19 @@ AI chatbot, dan web system untuk komunitas.
 
 <p>
 
-Saya adalah developer yang memiliki minat besar dalam
-pembuatan bot Discord, WhatsApp bot, serta integrasi AI API.
+Saya adalah seorang developer yang memiliki passion besar
+dalam dunia automation, bot development, dan integrasi AI.
 
-Saya sering membuat sistem automation untuk membantu
-server komunitas serta berbagai project teknologi.
+Saya terbiasa membangun berbagai sistem seperti:
+
+• Discord bot automation  
+• WhatsApp bot system  
+• AI chatbot integration  
+• Web tools untuk komunitas  
+
+Fokus saya adalah menciptakan solusi teknologi yang
+membantu komunitas digital berkembang dengan sistem
+yang efisien dan modern.
 
 </p>
 
@@ -72,16 +85,7 @@ server komunitas serta berbagai project teknologi.
 
 <h2>Skill</h2>
 
-<div class="grid">
-
-<div class="card">JavaScript</div>
-<div class="card">Discord API</div>
-<div class="card">AI API</div>
-<div class="card">Web Development</div>
-<div class="card">WhatsApp Development</div>
-<div class="card">Discord Development</div>
-
-</div>
+<canvas id="skillChart"></canvas>
 
 </section>
 
@@ -105,7 +109,22 @@ server komunitas serta berbagai project teknologi.
 
 
 
-<section class="rating-section">
+<section>
+
+<h2>Statistik GitHub</h2>
+
+<div id="github-stats">
+
+<p>Total Repo : <span id="repo"></span></p>
+<p>Followers : <span id="followers"></span></p>
+
+</div>
+
+</section>
+
+
+
+<section>
 
 <h2>Rating Portfolio</h2>
 
@@ -125,9 +144,9 @@ server komunitas serta berbagai project teknologi.
 
 
 
-<section class="visitor">
+<section>
 
-<h2>Jumlah Pengunjung</h2>
+<h2>Pengunjung Website</h2>
 
 <h3 id="visitor-count">Loading...</h3>
 
@@ -156,6 +175,26 @@ server komunitas serta berbagai project teknologi.
 </div>
 
 <p>Discord : fiicruzh</p>
+
+</section>
+
+
+
+<section>
+
+<h2>Kirim Pesan</h2>
+
+<form action="https://formspree.io/f/xvgavvde" method="POST">
+
+<input type="text" name="name" placeholder="Nama" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<textarea name="message" placeholder="Pesan"></textarea>
+
+<button type="submit">Kirim</button>
+
+</form>
 
 </section>
 
