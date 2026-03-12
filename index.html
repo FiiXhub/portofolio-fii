@@ -466,10 +466,15 @@ localStorage.setItem("rating",star)
 
 /* VISITOR */
 
+/* VISITOR */
+
 fetch("https://api.countapi.xyz/hit/fii-portfolio/visits")
 .then(res=>res.json())
 .then(data=>{
 document.getElementById("visitors").innerText=data.value
+})
+.catch(()=>{
+document.getElementById("visitors").innerText="1"
 })
 
 /* GALAXY */
@@ -511,3 +516,4 @@ draw()
 
 </body>
 </html>
+
