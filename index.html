@@ -37,7 +37,7 @@ z-index:-3;
 filter:brightness(0.35);
 }
 
-/* GALAXY */
+/* GALAXY PARTICLES */
 
 canvas{
 position:fixed;
@@ -123,7 +123,7 @@ line-height:1.7;
 font-size:15px;
 }
 
-/* SOCIAL */
+/* BUTTON SOCIAL */
 
 .buttons{
 margin-top:30px;
@@ -154,20 +154,6 @@ transform:translateY(-3px) scale(1.05);
 box-shadow:0 0 25px rgba(255,255,255,0.25);
 }
 
-.btn .fa-tiktok{
-background:linear-gradient(45deg,#25F4EE,#FE2C55);
--webkit-background-clip:text;
-color:transparent;
-}
-
-.btn .fa-discord{
-color:#5865F2;
-}
-
-.btn .fa-whatsapp{
-color:#25D366;
-}
-
 /* SECTION */
 
 .section{
@@ -186,23 +172,21 @@ color:#38bdf8;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:15px;
-margin-top:30px;
 }
 
 .stat-box{
 background:rgba(255,255,255,0.05);
-padding:18px;
+padding:20px;
 border-radius:12px;
 }
 
 .stat-box h3{
 font-size:14px;
 color:#94a3b8;
-margin-bottom:8px;
 }
 
 .stat-box span{
-font-size:22px;
+font-size:24px;
 color:#38bdf8;
 }
 
@@ -358,17 +342,9 @@ Discord bots, and modern web applications.
 </div>
 
 <div class="buttons">
-<a class="btn" href="https://tiktok.com/@fiicruzh">
-<i class="fa-brands fa-tiktok"></i> TikTok
-</a>
-
-<a class="btn" href="https://discord.gg/uKFv8mdM">
-<i class="fa-brands fa-discord"></i> Discord
-</a>
-
-<a class="btn" href="https://wa.me/62895386427676">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp
-</a>
+<a class="btn" href="https://tiktok.com/@fiicruzh"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+<a class="btn" href="https://discord.gg/uKFv8mdM"><i class="fa-brands fa-discord"></i> Discord</a>
+<a class="btn" href="https://wa.me/62895386427676"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
 </div>
 
 <div class="section">
@@ -399,6 +375,43 @@ Discord bots, and modern web applications.
 
 </div>
 
+</div>
+
+<!-- SKILLS -->
+
+<div id="skills" class="section">
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill"><i class="fa-brands fa-js"></i>JavaScript</div>
+<div class="skill"><i class="fa-brands fa-discord"></i>Discord API</div>
+<div class="skill"><i class="fa-solid fa-robot"></i>AI API</div>
+<div class="skill"><i class="fa-solid fa-code"></i>Web Development</div>
+<div class="skill"><i class="fa-brands fa-whatsapp"></i>WhatsApp Bot</div>
+<div class="skill"><i class="fa-solid fa-server"></i>Discord Development</div>
+</div>
+</div>
+
+<!-- PROJECT -->
+
+<div id="projects" class="section">
+<h2>Projects</h2>
+<div class="projects">
+<div class="project"><i class="fa-solid fa-gamepad"></i>Game Bot</div>
+<div class="project"><i class="fa-solid fa-brain"></i>AI Chat Bot</div>
+<div class="project"><i class="fa-solid fa-ticket"></i>Ticket Bot</div>
+<div class="project"><i class="fa-solid fa-comments"></i>Chat Bot</div>
+</div>
+</div>
+
+<!-- CONTACT -->
+
+<div id="contact" class="section">
+<h2>Contact</h2>
+<div class="contact">
+<a href="https://tiktok.com/@fiicruzh"><i class="fa-brands fa-tiktok"></i></a>
+<a href="https://discord.gg/uKFv8mdM"><i class="fa-brands fa-discord"></i></a>
+<a href="https://wa.me/62895386427676"><i class="fa-brands fa-whatsapp"></i></a>
+</div>
 </div>
 
 <footer>
@@ -443,7 +456,7 @@ fetch("https://api.countapi.xyz/hit/fii-portfolio/global")
 document.getElementById("visitors").innerText=data.value
 })
 
-/* TODAY VISITOR */
+/* TODAY */
 
 fetch("https://api.countapi.xyz/hit/fii-portfolio/today")
 .then(res=>res.json())
@@ -454,11 +467,10 @@ document.getElementById("today").innerText=data.value
 /* LIVE ONLINE */
 
 setInterval(()=>{
-let random=Math.floor(Math.random()*8)+1
-document.getElementById("online").innerText=random
-},3000)
+document.getElementById("online").innerText=Math.floor(Math.random()*6)+1
+},4000)
 
-/* COUNTRY DETECT */
+/* COUNTRY */
 
 fetch("https://ipapi.co/json/")
 .then(res=>res.json())
